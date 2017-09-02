@@ -97,9 +97,9 @@ RUN \
  
 # compile ffmpeg
 RUN \
- cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz
+ cd /tmp/ && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz
 RUN \
- tar zxf ffmpeg-3.3.2.tar.gz && rm ffmpeg-3.3.2.tar.gz
+ tar zxf ffmpeg-3.3.2.tar.gz 
 RUN \
  cd /tmp/ffmpeg-3.3.2
 RUN \
