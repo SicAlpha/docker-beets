@@ -45,7 +45,7 @@ RUN \
 	libass-dev \
 	libwebp-dev \
 	libtheora-dev \
-	opus-dev \
+	opus-dev
 
 # install runtime packages
 RUN \

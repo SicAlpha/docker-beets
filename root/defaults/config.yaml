@@ -9,7 +9,7 @@ per_disc_numbering: no
 convert:
     auto: no
     ffmpeg: /usr/local/bin/ffmpeg
-    opts: -ac 2
+    opts: -ac 2 -ar 44100
     max_bitrate: 320
     threads: 1
     copy_album_art: yes
