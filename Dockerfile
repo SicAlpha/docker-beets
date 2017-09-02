@@ -24,6 +24,7 @@ RUN \
 	build-base \
 	libgcc \
 	make \
+	pkgconf \
 	pkgconfig \
 	pcre \
 	musl-dev \
