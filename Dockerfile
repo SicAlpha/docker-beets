@@ -69,7 +69,7 @@ RUN \
 	libtheora-dev \
 	opus-dev \
 	libcrypto1.0 \
-	libssl1.0 \
+	libssl1.0
 	
 
 # add repository for fdk-aac-dev
