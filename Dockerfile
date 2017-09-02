@@ -67,7 +67,10 @@ RUN \
 	libass-dev \
 	libwebp-dev \
 	libtheora-dev \
-	opus-dev
+	opus-dev \
+	libcrypto1.0 \
+	libssl1.0 \
+	
 
 # add repository for fdk-aac-dev
 RUN \
@@ -104,7 +107,7 @@ RUN \
  
 # compile ffmpeg
 RUN \
- cd /tmp/ && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
+ cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
  tar zxf ffmpeg-3.3.2.tar.gz 
 RUN \
  cd /tmp/ffmpeg-3.3.2 && \
@@ -127,10 +130,7 @@ RUN \
  --enable-avresample \
  --enable-libfreetype \
  --enable-openssl \
- --disable-debug
- 
-RUN \
- cd /tmp/ffmpeg-3.3.2 && \
+ --disable-debug && \
  make && make install && make distclean
 
 # install pip packages
