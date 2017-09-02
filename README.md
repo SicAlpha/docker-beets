@@ -5,6 +5,8 @@
 [appurl]: http://beets.io/
 [hub]: https://hub.docker.com/r/linuxserver/beets/
 
+A fork of linuxserver/docker-beets with a compiled version of FFmpeg that has libfdk-aac codec enabled.
+
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
 The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
@@ -82,6 +84,41 @@ Contains [beets-copyartifacts](https://github.com/sbarakat/beets-copyartifacts) 
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/beets`
 
+### FFmpeg Build
+```
+This is copied from the example I used, NOT the actual build info.  Should still be accurate.  Will replace with actual when done building.
+
+ffmpeg version 3.3.2 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 5.3.0 (Alpine 5.3.0)
+  configuration: --enable-version3 --enable-gpl --enable-nonfree --enable-libmp3lame --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libfdk-aac --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug
+  libavutil      55. 28.100 / 55. 28.100
+  libavcodec     57. 48.101 / 57. 48.101
+  libavformat    57. 41.100 / 57. 41.100
+  libavdevice    57.  0.101 / 57.  0.101
+  libavfilter     6. 47.100 /  6. 47.100
+  libavresample   3.  0.  0 /  3.  0.  0
+  libswscale      4.  1.100 /  4.  1.100
+  libswresample   2.  1.100 /  2.  1.100
+  libpostproc    54.  0.100 / 54.  0.100
+
+  configuration:
+    --enable-version3
+    --enable-gpl
+    --enable-nonfree
+    --enable-libmp3lame
+    --enable-libvpx
+    --enable-libtheora
+    --enable-libvorbis
+    --enable-libopus
+    --enable-libfdk-aac
+    --enable-libass
+    --enable-libwebp
+    --enable-librtmp
+    --enable-postproc
+    --enable-avresample
+    --enable-libfreetype
+    --disable-debug
+```
 
 ## Versions
 
