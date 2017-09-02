@@ -25,7 +25,11 @@ RUN \
 	libgcc \
 	make \
 	pkgconfig \
-	pcre && \
+	pcre \
+	musl-dev \
+	libc-dev \
+	pcre-dev \
+	zlib-dev && \
 
 # install runtime packages
  apk add --no-cache \
@@ -53,7 +57,7 @@ RUN \
 	libvpx-dev \
 	libvorbis-dev \
 	freetype-dev \
-	lib-ass-dev \
+	libass-dev \
 	libtheora-dev \
 	opus-dev && \
 
