@@ -29,7 +29,7 @@ docker create \
 -v <path to data>:/config \
 -e PGID=<gid> -e PUID=<uid>  \
 -p 1234:1234 \
-linuxserver/beets
+epatch/docker-beets
 ```
 
 ## Parameters
