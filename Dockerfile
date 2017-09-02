@@ -97,27 +97,32 @@ RUN \
  
 # compile ffmpeg
 RUN \
- cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
- tar zxf ffmpeg-3.3.2.tar.gz && rm ffmpeg-3.3.2.tar.gz && \
- cd /tmp/ffmpeg-3.3.2 && \
-	./configure \
-	--enable-version3 \
-	--enable-gpl \
-	--enable-nonfree \
-	--enable-libmp3lame \
-	--enable-libvpx \
-	--enable-libtheora \
-	--enable-libvorbis \
-	--enable-libopus \
-	--enable-libfdk-aac \
-	--enable-libass \
-	--enable-libwebp \
-	--enable-librtmp \
-	--enable-postproc \
-	--enable-avresample \
-	--enable-libfreetype \
-	--enable-openssl \
-	--disable-debug && \
+ cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz
+RUN \
+ tar zxf ffmpeg-3.3.2.tar.gz && rm ffmpeg-3.3.2.tar.gz
+RUN \
+ cd /tmp/ffmpeg-3.3.2
+RUN \
+ ./configure \
+ --enable-version3 \
+ --enable-gpl \
+ --enable-nonfree \
+ --enable-libmp3lame \
+ --enable-libvpx \
+ --enable-libtheora \
+ --enable-libvorbis \
+ --enable-libopus \
+ --enable-libfdk-aac \
+ --enable-libass \
+ --enable-libwebp \
+ --enable-librtmp \
+ --enable-postproc \
+ --enable-avresample \
+ --enable-libfreetype \
+ --enable-openssl \
+ --disable-debug
+
+RUN \
  make && make install && make distclean
 
 # install pip packages
