@@ -122,6 +122,7 @@ ffmpeg version 3.3.2 Copyright (c) 2000-2016 the FFmpeg developers
 
 ## Versions
 
++ **01.09.17:** Changed FFmpeg to compiled version with libfdk-aac codec enabled.
 + **25.05.17:** Rebase to alpine linux 3.6.
 + **06.02.17:** Rebase to alpine linux 3.5.
 + **16.01.17:** Add packages required for replaygain.
