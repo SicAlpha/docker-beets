@@ -119,7 +119,6 @@ RUN \
  --enable-postproc \
  --enable-avresample \
  --enable-libfreetype \
- --enable-openssl \
  --disable-debug
 
 RUN \
