@@ -37,13 +37,9 @@ RUN \
 	yasm-dev \
 	lame-dev \
 	libogg-dev \
-	x264-dev \
 	libvpx-dev \
 	libvorbis-dev \
-	x265-dev \
 	freetype-dev \
-	libass-dev \
-	libwebp-dev \
 	libtheora-dev \
 	opus-dev
 
@@ -68,6 +64,10 @@ RUN \
 	tar \
 	wget \
 	nasm \
+	x264-dev \
+	x265-dev \
+	libwebp-dev \
+	libass-dev \
 	libcrypto1.0 \
 	libssl1.0
 	
