@@ -123,7 +123,6 @@ RUN \
  --enable-libfdk-aac \
  --enable-libass \
  --enable-libwebp \
- --enable-librtmp \
  --enable-postproc \
  --enable-avresample \
  --enable-libfreetype \
