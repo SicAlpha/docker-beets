@@ -18,14 +18,19 @@ RUN \
 	libpng-dev \
 	make \
 	openjpeg-dev \
-	python2-dev && \
+	python2-dev \
+	binutils-libs \
+	binutils \
+	build-base \
+	libgcc \
+	make \
+	pkgconfig \
+	pcre && \
 
 # install runtime packages
  apk add --no-cache \
 	curl \
 	expat \
-	ffmpeg \
-	ffmpeg-libs \
 	gdbm \
 	gst-plugins-good1 \
 	gstreamer1 \
@@ -40,7 +45,23 @@ RUN \
 	python2 \
 	sqlite-libs \
 	tar \
-	wget && \
+	wget \
+	nasm \
+	yasm-dev \
+	lame-dev \
+	libogg-dev \
+	libvpx-dev \
+	libvorbis-dev \
+	freetype-dev \
+	lib-ass-dev \
+	libtheora-dev \
+	opus-dev && \
+
+# add repository for fdk-aac-dev
+ echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+
+ # install fdk-aac-dev package
+ apk add --update --no-cache fdk-aac-dev && \
 
 # compile mp3gain
  mkdir -p \
@@ -64,6 +85,30 @@ RUN \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
  make && \
  make install && \
+ 
+# compile ffmpeg
+ cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
+ tar zxf ffmpeg-3.3.2.tar.gz && rm ffmpeg-3.3.2.tar.gz && \
+ cd /tmp/ffmpeg-3.3.2 && \
+	./configure \
+	--enable-version3 \
+	--enable-gpl \
+	--enable-nonfree \
+	--enable-libmp3lame \
+	--enable-libvpx \
+	--enable-libtheora \
+	--enable-libvorbis \
+	--enable-libopus \
+	--enable-libfdk-aac \
+	--enable-libass \
+	--enable-libwebp \
+	--enable-librtmp \
+	--enable-postproc \
+	--enable-avresample \
+	--enable-libfreetype \
+	--enable-openssl \
+	--disable-debug && \
+ make && make install && make distclean && \
 
 # install pip packages
  pip install --no-cache-dir -U \

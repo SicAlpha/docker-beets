@@ -8,10 +8,17 @@ per_disc_numbering: no
 
 convert:
     auto: no
-    ffmpeg: /usr/bin/ffmpeg
-    opts: -ab 320k -ac 2 -ar 48000
+    ffmpeg: /usr/local/bin/ffmpeg
+    opts: -ac 2
     max_bitrate: 320
     threads: 1
+    copy_album_art: yes
+    embed: no
+    never_convert_lossy_files: yes
+    formats:
+        aac:
+            command: ffmpeg -i $source -y -vn -acodec libfdk_aac -vbr 3 $dest
+            extension: m4a
     
 paths:
     default: $albumartist/$album%aunique{}/$track - $title
