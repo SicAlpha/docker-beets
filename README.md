@@ -84,7 +84,7 @@ Contains [beets-copyartifacts](https://github.com/sbarakat/beets-copyartifacts) 
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/beets`
 
-### FFmpeg Build
+## FFmpeg Build
 ```
 This is copied from the example I used, NOT the actual build info.  Should still be accurate.
 Will replace with actual when done building.
