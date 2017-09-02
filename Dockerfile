@@ -33,7 +33,19 @@ RUN \
 	musl-dev \
 	libc-dev \
 	pcre-dev \
-	zlib-dev
+	zlib-dev \
+	yasm-dev \
+	lame-dev \
+	libogg-dev \
+	x264-dev \
+	libvpx-dev \
+	libvorbis-dev \
+	x265-dev \
+	freetype-dev \
+	libass-dev \
+	libwebp-dev \
+	libtheora-dev \
+	opus-dev \
 
 # install runtime packages
 RUN \
@@ -56,18 +68,6 @@ RUN \
 	tar \
 	wget \
 	nasm \
-	yasm-dev \
-	lame-dev \
-	libogg-dev \
-	x264-dev \
-	libvpx-dev \
-	libvorbis-dev \
-	x265-dev \
-	freetype-dev \
-	libass-dev \
-	libwebp-dev \
-	libtheora-dev \
-	opus-dev \
 	libcrypto1.0 \
 	libssl1.0
 	
