@@ -29,9 +29,10 @@ RUN \
 	musl-dev \
 	libc-dev \
 	pcre-dev \
-	zlib-dev && \
+	zlib-dev
 
 # install runtime packages
+RUN \
  apk add --no-cache \
 	curl \
 	expat \
@@ -59,15 +60,18 @@ RUN \
 	freetype-dev \
 	libass-dev \
 	libtheora-dev \
-	opus-dev && \
+	opus-dev
 
 # add repository for fdk-aac-dev
- echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+RUN \
+ echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 
  # install fdk-aac-dev package
- apk add --update --no-cache fdk-aac-dev && \
+RUN \
+ apk add --update --no-cache fdk-aac-dev
 
 # compile mp3gain
+RUN \
  mkdir -p \
 	/tmp/mp3gain-src && \
  curl -o \
@@ -77,9 +81,10 @@ RUN \
  unzip -qq /tmp/mp3gain-src/mp3gain.zip && \
  sed -i "s#/usr/local/bin#/usr/bin#g" /tmp/mp3gain-src/Makefile && \
  make && \
- make install && \
+ make install
 
 # compile chromaprint
+RUN \
  git clone https://bitbucket.org/acoustid/chromaprint.git \
 	/tmp/chromaprint && \
  cd /tmp/chromaprint && \
@@ -88,9 +93,10 @@ RUN \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
  make && \
- make install && \
+ make install
  
 # compile ffmpeg
+RUN \
  cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
  tar zxf ffmpeg-3.3.2.tar.gz && rm ffmpeg-3.3.2.tar.gz && \
  cd /tmp/ffmpeg-3.3.2 && \
@@ -112,9 +118,10 @@ RUN \
 	--enable-libfreetype \
 	--enable-openssl \
 	--disable-debug && \
- make && make install && make distclean && \
+ make && make install && make distclean
 
 # install pip packages
+RUN \
  pip install --no-cache-dir -U \
 	beets \
 	beets-copyartifacts \
@@ -123,9 +130,10 @@ RUN \
 	pip \
 	pyacoustid \
 	pylast \
-	unidecode && \
+	unidecode
 
 # cleanup
+RUN \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
