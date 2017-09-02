@@ -26,6 +26,9 @@ RUN \
 	make \
 	pkgconf \
 	pkgconfig \
+	openssl \
+	openssl-dev \
+	ca-certificates \
 	pcre \
 	musl-dev \
 	libc-dev \
@@ -56,10 +59,13 @@ RUN \
 	yasm-dev \
 	lame-dev \
 	libogg-dev \
+	x264-dev \
 	libvpx-dev \
 	libvorbis-dev \
+	x265-dev \
 	freetype-dev \
 	libass-dev \
+	libwebp-dev \
 	libtheora-dev \
 	opus-dev
 
@@ -106,7 +112,10 @@ RUN \
  --enable-version3 \
  --enable-gpl \
  --enable-nonfree \
+ --enable-small \
  --enable-libmp3lame \
+ --enable-libx264 \
+ --enable-libx265 \
  --enable-libvpx \
  --enable-libtheora \
  --enable-libvorbis \
@@ -118,9 +127,11 @@ RUN \
  --enable-postproc \
  --enable-avresample \
  --enable-libfreetype \
+ --enable-openssl \
  --disable-debug
-
+ 
 RUN \
+ cd /tmp/ffmpeg-3.3.2 && \
  make && make install && make distclean
 
 # install pip packages
