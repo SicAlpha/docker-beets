@@ -86,11 +86,15 @@ Contains [beets-copyartifacts](https://github.com/sbarakat/beets-copyartifacts) 
 
 ### FFmpeg Build
 ```
-This is copied from the example I used, NOT the actual build info.  Should still be accurate.  Will replace with actual when done building.
+This is copied from the example I used, NOT the actual build info.  Should still be accurate.
+Will replace with actual when done building.
 
 ffmpeg version 3.3.2 Copyright (c) 2000-2016 the FFmpeg developers
   built with gcc 5.3.0 (Alpine 5.3.0)
-  configuration: --enable-version3 --enable-gpl --enable-nonfree --enable-libmp3lame --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libfdk-aac --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype --disable-debug
+  configuration: --enable-version3 --enable-gpl --enable-nonfree --enable-libmp3lame
+  --enable-libvpx --enable-libtheora --enable-libvorbis --enable-libopus --enable-libfdk-aac
+  --enable-libass --enable-libwebp --enable-postproc --enable-avresample --enable-libfreetype
+  --disable-debug
   libavutil      55. 28.100 / 55. 28.100
   libavcodec     57. 48.101 / 57. 48.101
   libavformat    57. 41.100 / 57. 41.100
