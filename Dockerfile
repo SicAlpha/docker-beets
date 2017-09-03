@@ -68,17 +68,15 @@ RUN \
 	libwebp-dev \
 	libass-dev \
 	libcrypto1.0 \
-	libssl1.0
+	libssl1.0 && \
 	
-RUN \
 # add repository for fdk-aac-dev
  echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 
- # install fdk-aac-dev package
- apk add --update --no-cache fdk-aac-dev
+# install fdk-aac-dev package
+ apk add --update --no-cache fdk-aac-dev && \
 
-RUN \
- # compile ffmpeg
+# compile ffmpeg
  cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
  tar zxf ffmpeg-3.3.2.tar.gz  && \
  cd /tmp/ffmpeg-3.3.2 && \
@@ -104,9 +102,7 @@ RUN \
  --disable-debug && \
  make && \
  make install && \
- make distclean
  
-RUN \
 # compile mp3gain
  mkdir -p \
 	/tmp/mp3gain-src && \
@@ -125,6 +121,7 @@ RUN \
 	/tmp/chromaprint && \
  cd /tmp/chromaprint && \
  cmake \
+	-DFFMPEG_ROOT=/usr/local/bin \
 	-DBUILD_TOOLS=ON \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
