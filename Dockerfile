@@ -68,14 +68,16 @@ RUN \
 	libwebp-dev \
 	libass-dev \
 	libcrypto1.0 \
-	libssl1.0 \
-	chromaprint && \
+	libssl1.0 && \
 	
 # add repository for fdk-aac-dev
  echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 
 # install fdk-aac-dev package
- apk add --update --no-cache fdk-aac-dev && \
+ apk add --update --no-cache \
+ chromaprint-dev \
+ chromaprint \
+ fdk-aac-dev && \
 
 # compile ffmpeg
  cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
