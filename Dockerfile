@@ -73,7 +73,7 @@ RUN \
 # add repository for fdk-aac-dev
  echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 
-# install fdk-aac-dev package
+# install chromaprint and fdk-aac-dev packages
  apk add --update --no-cache \
  chromaprint-dev \
  chromaprint \
@@ -116,10 +116,7 @@ RUN \
  unzip -qq /tmp/mp3gain-src/mp3gain.zip && \
  sed -i "s#/usr/local/bin#/usr/bin#g" /tmp/mp3gain-src/Makefile && \
  make && \
- make install
-
-RUN \
-
+ make install && \
 
 # install pip packages
  pip install --no-cache-dir -U \
@@ -130,9 +127,8 @@ RUN \
 	pip \
 	pyacoustid \
 	pylast \
-	unidecode
+	unidecode && \
 
-RUN \
 # cleanup
  apk del --purge \
 	build-dependencies && \
