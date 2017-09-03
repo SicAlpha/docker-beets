@@ -41,10 +41,9 @@ RUN \
 	libvorbis-dev \
 	freetype-dev \
 	libtheora-dev \
-	opus-dev
+	opus-dev && \
 
 # install runtime packages
-RUN \
  apk add --no-cache \
 	curl \
 	expat \
@@ -69,47 +68,18 @@ RUN \
 	libwebp-dev \
 	libass-dev \
 	libcrypto1.0 \
-	libssl1.0
+	libssl1.0 && \
 	
 
 # add repository for fdk-aac-dev
-RUN \
- echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
+ echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 
  # install fdk-aac-dev package
-RUN \
- apk add --update --no-cache fdk-aac-dev
+ apk add --update --no-cache fdk-aac-dev && \
 
-# compile mp3gain
-RUN \
- mkdir -p \
-	/tmp/mp3gain-src && \
- curl -o \
- /tmp/mp3gain-src/mp3gain.zip -L \
-	https://sourceforge.net/projects/mp3gain/files/mp3gain/1.5.2/mp3gain-1_5_2_r2-src.zip && \
- cd /tmp/mp3gain-src && \
- unzip -qq /tmp/mp3gain-src/mp3gain.zip && \
- sed -i "s#/usr/local/bin#/usr/bin#g" /tmp/mp3gain-src/Makefile && \
- make && \
- make install
-
-# compile chromaprint
-RUN \
- git clone https://bitbucket.org/acoustid/chromaprint.git \
-	/tmp/chromaprint && \
- cd /tmp/chromaprint && \
- cmake \
-	-DBUILD_TOOLS=ON \
-	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
- make && \
- make install
- 
-# compile ffmpeg
-RUN \
+ # compile ffmpeg
  cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-3.3.2.tar.gz && \
- tar zxf ffmpeg-3.3.2.tar.gz 
-RUN \
+ tar zxf ffmpeg-3.3.2.tar.gz  && \
  cd /tmp/ffmpeg-3.3.2 && \
  ./configure \
  --enable-version3 \
@@ -131,10 +101,32 @@ RUN \
  --enable-libfreetype \
  --enable-openssl \
  --disable-debug && \
- make && make install && make distclean
+ make && make install && make distclean && \
+ 
+# compile mp3gain
+ mkdir -p \
+	/tmp/mp3gain-src && \
+ curl -o \
+ /tmp/mp3gain-src/mp3gain.zip -L \
+	https://sourceforge.net/projects/mp3gain/files/mp3gain/1.5.2/mp3gain-1_5_2_r2-src.zip && \
+ cd /tmp/mp3gain-src && \
+ unzip -qq /tmp/mp3gain-src/mp3gain.zip && \
+ sed -i "s#/usr/local/bin#/usr/bin#g" /tmp/mp3gain-src/Makefile && \
+ make && \
+ make install && \
 
+# compile chromaprint
+ git clone https://bitbucket.org/acoustid/chromaprint.git \
+	/tmp/chromaprint && \
+ cd /tmp/chromaprint && \
+ cmake \
+	-DBUILD_TOOLS=ON \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
+ make && \
+ make install && \
+ 
 # install pip packages
-RUN \
  pip install --no-cache-dir -U \
 	beets \
 	beets-copyartifacts \
@@ -143,10 +135,9 @@ RUN \
 	pip \
 	pyacoustid \
 	pylast \
-	unidecode
+	unidecode && \
 
 # cleanup
-RUN \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
