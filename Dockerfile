@@ -67,6 +67,9 @@ RUN \
 	x265-dev \
 	libwebp-dev \
 	libass-dev \
+	libavcodec-dev \
+	libavformat-dev \
+	libavutil-dev \
 	libcrypto1.0 \
 	libssl1.0 && \
 	
