@@ -68,7 +68,8 @@ RUN \
 	libwebp-dev \
 	libass-dev \
 	libcrypto1.0 \
-	libssl1.0 && \
+	libssl1.0 \
+	chromaprint && \
 	
 # add repository for fdk-aac-dev
  echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
@@ -116,17 +117,7 @@ RUN \
  make install
 
 RUN \
-# compile chromaprint
- git clone https://bitbucket.org/acoustid/chromaprint.git \
-	/tmp/chromaprint && \
- cd /tmp/chromaprint && \
- cmake \
-	-DFFMPEG_ROOT=/usr/local \
-	-DBUILD_TOOLS=ON \
-	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
- make && \
- make install && \
+
 
 # install pip packages
  pip install --no-cache-dir -U \
