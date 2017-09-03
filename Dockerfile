@@ -67,9 +67,6 @@ RUN \
 	x265-dev \
 	libwebp-dev \
 	libass-dev \
-	libavcodec-dev \
-	libavformat-dev \
-	libavutil-dev \
 	libcrypto1.0 \
 	libssl1.0 && \
 	
@@ -124,7 +121,7 @@ RUN \
 	/tmp/chromaprint && \
  cd /tmp/chromaprint && \
  cmake \
-	-DFFMPEG_ROOT=/usr/local/bin \
+	-DFFMPEG_ROOT=/usr/local \
 	-DBUILD_TOOLS=ON \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
