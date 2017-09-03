@@ -129,9 +129,8 @@ RUN \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr && \
  make && \
- make install
+ make install && \
 
-RUN \
 # install pip packages
  pip install --no-cache-dir -U \
 	beets \
