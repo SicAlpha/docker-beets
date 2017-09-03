@@ -75,7 +75,6 @@ RUN \
 
 # install chromaprint and fdk-aac-dev packages
  apk add --update --no-cache \
- chromaprint-dev \
  chromaprint \
  fdk-aac-dev && \
 
@@ -126,6 +125,7 @@ RUN \
 	pillow \
 	pip \
 	pyacoustid \
+	discogs-client \
 	pylast \
 	unidecode && \
 
