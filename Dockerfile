@@ -1,5 +1,5 @@
 FROM lsiobase/alpine:3.6
-MAINTAINER sparklyballs
+MAINTAINER epatch
 
 # set version label
 ARG BUILD_DATE
