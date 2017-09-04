@@ -114,7 +114,7 @@ usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfi
 
 ## Versions
 
-+ **01.09.17:** Changed FFmpeg to compiled version with libfdk-aac codec enabled.
++ **01.09.17:** Changed FFmpeg to compiled version with [libfdk-aac](https://en.wikipedia.org/wiki/Fraunhofer_FDK_AAC) codec enabled.
 + **25.05.17:** Rebase to alpine linux 3.6.
 + **06.02.17:** Rebase to alpine linux 3.5.
 + **16.01.17:** Add packages required for replaygain.
