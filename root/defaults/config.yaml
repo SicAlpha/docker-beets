@@ -14,6 +14,7 @@ convert:
     copy_album_art: yes
     embed: no
     never_convert_lossy_files: yes
+	dest: /transcoded
     formats:
         aac:
             command: ffmpeg -i $source -ac 2 -ar 44100 -y -vn -acodec libfdk_aac -vbr 3 $dest

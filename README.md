@@ -5,7 +5,7 @@
 [appurl]: http://beets.io/
 [hub]: https://hub.docker.com/r/linuxserver/beets/
 
-A fork of linuxserver/docker-beets with a compiled version of FFmpeg that has libfdk-aac codec enabled.
+A fork of linuxserver/docker-beets with a compiled version of FFmpeg that has libfdk-aac codec enabled.  The disccogs plugin has also been included (enable in config.yaml).
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
@@ -44,6 +44,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /config` - Configuration files
 * `-v /music` - Music library location
 * `-v /downloads` - Non-processed music
+* `-v /transcoded` - Transcoded music
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
